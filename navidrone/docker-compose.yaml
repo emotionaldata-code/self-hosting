@@ -1,0 +1,13 @@
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    user: 1000:1000 # should be owner of volumes
+    ports:
+      - "6200:6200"
+    restart: unless-stopped
+    environment:
+      # Optional: put your config options customization here. Examples:
+      ND_LOGLEVEL: debug
+    volumes:
+      - "/home/crostaceo/navidrone-data/data:/data"
+      - "/home/crostaceo/navidrone-data/music:/music:ro"
